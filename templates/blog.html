@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="blog-container">
+  <h2>Blog {{ id }}</h2>
+  {% if id==1 %}
+    <p>Eating healthy doesn't have to be complicated. Add veggies, choose whole grains, and watch portions.</p>
+  {% elif id==2 %}
+    <p>Try Aloo Paratha, Poha, Besan Chilla and more for quick Indian breakfasts.</p>
+  {% else %}
+    <p>Home-cooked meals connect family and taste better. Try weekly themes!</p>
+  {% endif %}
+  <a href="{{ url_for('blogs') }}"><button>Back to Blogs</button></a>
+</div>
+{% endblock %}

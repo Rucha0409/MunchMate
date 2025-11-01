@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  {% for r in recipes %}
+  <div class="recipe-card" data-id="{{ r['id'] }}" onclick="openModal({{ r['id'] }})">
+    <img src="{{ url_for('static', filename='style/img/' + r['image']) }}" alt="{{ r['name'] }}">
+    <div class="recipe-info">
+      <h3>{{ r['name'] }}</h3>
+      <p class="muted">{{ r['type'] }} • {{ r['prep_time'] }}</p>
+      <p class="small">{{ r['ingredients'] }}</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

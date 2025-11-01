@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MunchMate</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style/style_visual.css') }}">
+</head>
+<body>
+  <header>
+    <div style="display:flex;align-items:center;justify-content:space-between;max-width:1100px;margin:0 auto;">
+      <div style="font-family:'Playfair Display', serif;font-size:1.6rem;">MunchMate</div>
+      <div>
+        <button id="darkToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+  <nav style="text-align:center;padding:10px;">
+    <a href="{{ url_for('index') }}">Home</a> |
+    <a href="{{ url_for('recipes') }}">Recipes</a> |
+    <a href="{{ url_for('recommend') }}">Recommend</a> |
+    <a href="{{ url_for('blogs') }}">Blogs</a>
+  </nav>
+  <div id="loader" class="loader" style="display:none;"></div>
+  {% block content %}{% endblock %}
+
+  <!-- Modal -->
+  <div id="recipeModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-btn" id="modalClose">&times;</span>
+      <div id="modalBody">Loading…</div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='style/main.js') }}"></script>
+</body>
+</html>
